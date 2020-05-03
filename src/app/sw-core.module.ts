@@ -12,11 +12,11 @@ import {RouterService} from "./services/router.service";
 import {ModuleService} from "./services/module.service";
 import {JitCompilerFactory} from "@angular/platform-browser-dynamic";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { ModuleNavigationComponent } from './components/module-navigation/module-navigation.component';
+import {ModuleNavigationComponent} from './components/module-navigation/module-navigation.component';
 import {HttpModule} from "@angular/http";
-import { HomeComponent } from './components/home-component/home.component';
+import {HomeComponent} from './components/home-component/home.component';
 import {SidebarModule} from "ng-sidebar";
-import { HeaderComponent } from './components/header/header.component';
+import {HeaderComponent} from './components/header/header.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 export function createCompiler(compilerFactory: CompilerFactory) {

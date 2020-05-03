@@ -1,7 +1,10 @@
-<p>module-navigation works!</p>
-
-<ul class="nav">
-	<li class="nav-item" *ngFor="let route of existingRoutes$ | async">
-		<a class="nav-link" routerLinkActive="active" [routerLink]="route.path">{{route.path | titlecase}}</a>
-	</li>
-</ul>
+<div class="module-navigation__items-wrapper">
+	<div class="module-navigation__item"
+		 *ngFor="let route of existingRoutes$ | async"
+		 routerLinkActive="_active"
+		 [routerLink]="route.path"
+		 [routerLinkActiveOptions]="{ exact: false}"
+		 closeSidebar>
+		<a class="module-navigation__item-link">{{route.path | titlecase}}</a>
+	</div>
+</div>

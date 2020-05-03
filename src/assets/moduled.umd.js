@@ -45,7 +45,7 @@
          * @return {?}
          */
         ModuledComponent.prototype.navigate = function (path) {
-            this.router.navigate(["moduled/" + path]);
+            this.router.navigate(["module/moduled/" + path]);
         };
         return ModuledComponent;
     }());
@@ -148,7 +148,7 @@
                             {
                                 path: '', component: ModuledComponent, children: [
                                     {
-                                        path: '', redirectTo: 'a'
+                                        path: '', redirectTo: 'module/a'
                                     },
                                     {
                                         path: 'a', component: ComponentaComponent

@@ -19,7 +19,7 @@ export class RouterService {
 
 	createAndRegisterRoute(moduleToRegister: ModuleData, exports: any) {
 		let route: Route = {
-			path: moduleToRegister.path,
+			path: 'module/' + moduleToRegister.path,
 			loadChildren: () => exports[`${moduleToRegister.moduleName}`]
 		};
 
@@ -27,6 +27,7 @@ export class RouterService {
 	}
 
 	routeIsRegistered(path: string) {
+		debugger;
 		return this.router.config.filter(r => r.path === path).length > 0;
 	}
 

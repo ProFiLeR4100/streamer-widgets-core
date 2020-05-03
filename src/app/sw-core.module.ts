@@ -19,6 +19,7 @@ import {SidebarModule} from "ng-sidebar";
 import {HeaderComponent} from './components/header/header.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {HeaderService} from "./services/header.service";
+import {ModulesListComponent} from './components/modules-list/modules-list.component';
 
 export function createCompiler(compilerFactory: CompilerFactory) {
 	return compilerFactory.createCompiler();
@@ -29,7 +30,8 @@ export function createCompiler(compilerFactory: CompilerFactory) {
 		SwCoreComponent,
 		ModuleNavigationComponent,
 		HomeComponent,
-		HeaderComponent
+		HeaderComponent,
+		ModulesListComponent
 	],
 	imports: [
 		HttpModule,

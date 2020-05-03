@@ -3,7 +3,7 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class DynamicTemplateBuilder {
 
-	public prepareTemplate(entity: any, useTextarea: boolean){
+	public prepareTemplate(entity: any, useTextarea: boolean) {
 
 		let properties = Object.keys(entity);
 		let template = "<form >";
@@ -11,7 +11,7 @@ export class DynamicTemplateBuilder {
 			? "text-editor"
 			: "string-editor";
 
-		properties.forEach((propertyName) =>{
+		properties.forEach((propertyName) => {
 			template += `
           <${editorName}
               [propertyName]="'${propertyName}'"

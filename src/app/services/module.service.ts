@@ -14,20 +14,20 @@ declare var SystemJS: any;
 
 @Injectable()
 export class ModuleService {
-    source = `http://${window.location.host}/`;
+	source = `http://${window.location.host}/`;
 
-    constructor(private compiler: Compiler, private http: Http) {
-        console.log(compiler);
-    }
+	constructor(private compiler: Compiler, private http: Http) {
+		console.log(compiler);
+	}
 
-    loadModules(): Observable<ModuleData[]> {
-        return this.http.get("./assets/modules.json")
+	loadModules(): Observable<ModuleData[]> {
+		return this.http.get("./assets/modules.json")
 			.pipe(map((value: any) => value.json()));
-    }
+	}
 
-    loadModule(moduleInfo: ModuleData): Observable<any> {
-        let url = this.source + moduleInfo.location;
-        return this.http.get(url)
+	loadModule(moduleInfo: ModuleData): Observable<any> {
+		let url = this.source + moduleInfo.location;
+		return this.http.get(url)
 			.pipe(map((value: any) => value.text()))
 			.pipe(map((source: string) => {
 				const exports = {}; // this will hold module exports
@@ -48,23 +48,23 @@ export class ModuleService {
 				//console.log(exports); // disabled as this object is cleared anyway
 				return exports;
 			}));
-    }
+	}
 
-    loadModuleSystemJS(moduleInfo: ModuleData): Observable<any> {
-        let url = this.source + moduleInfo.location;
-        SystemJS.set('@angular/core', SystemJS.newModule(AngularCore));
-        SystemJS.set('@angular/common', SystemJS.newModule(AngularCommon));
-        SystemJS.set('@angular/router', SystemJS.newModule(AngularRouter));
-        SystemJS.set('@angular/platform-browser/animations', SystemJS.newModule(BrowserAnimations));
-        // SystemJS.set('@clr/angular', SystemJS.newModule(AngularClarity));
+	loadModuleSystemJS(moduleInfo: ModuleData): Observable<any> {
+		let url = this.source + moduleInfo.location;
+		SystemJS.set('@angular/core', SystemJS.newModule(AngularCore));
+		SystemJS.set('@angular/common', SystemJS.newModule(AngularCommon));
+		SystemJS.set('@angular/router', SystemJS.newModule(AngularRouter));
+		SystemJS.set('@angular/platform-browser/animations', SystemJS.newModule(BrowserAnimations));
+		// SystemJS.set('@clr/angular', SystemJS.newModule(AngularClarity));
 
-        // now, import the new module
-        return from(SystemJS.import(`${url}`).then((module) => {
-            console.log(module);
-            return this.compiler.compileModuleAndAllComponentsAsync(module[`${moduleInfo.moduleName}`]).then(compiled => {
-                console.log(compiled);
-                return module;
-            });
-        }));
-    }
+		// now, import the new module
+		return from(SystemJS.import(`${url}`).then((module) => {
+			console.log(module);
+			return this.compiler.compileModuleAndAllComponentsAsync(module[`${moduleInfo.moduleName}`]).then(compiled => {
+				console.log(compiled);
+				return module;
+			});
+		}));
+	}
 }

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ModuleData} from "./models/module.model";
 import {ModuleService} from "./services/module.service";
 import {RouterService} from "./services/router.service";
-import {Router} from "@angular/router";
+import {NavigationEnd, NavigationError, NavigationStart, Router} from "@angular/router";
 
 @Component({
 	selector: 'sw-core',
@@ -16,6 +16,20 @@ export class SwCoreComponent implements OnInit {
 	constructor(private routerService: RouterService,
 				private moduleService: ModuleService,
 				public router: Router) {
+		this.router.events.subscribe(async routerEvent => {
+			if (routerEvent instanceof NavigationStart) {
+				if (routerEvent.url.includes("/module/") && !this.routerService.routeIsRegistered(routerEvent.url.startsWith('/') ? routerEvent.url.substring(1) : routerEvent.url)) {
+					console.log("YAY");
+					// TODO: ADD LAZY LOADING
+				}
+			}
+
+			if (routerEvent instanceof NavigationEnd) {
+			}
+
+			if (routerEvent instanceof NavigationError) {
+			}
+		});
 	}
 
 	public _sidebarOpened: boolean = false;
@@ -32,13 +46,12 @@ export class SwCoreComponent implements OnInit {
 						this.registerRoute(module);
 					}
 				});
-			})
-		;
+			});
 	}
 
 	enableModule(moduleToEnable: ModuleData) {
 		// enable or disable module
-		if(this.isRegistered(moduleToEnable)) {
+		if (this.isRegistered(moduleToEnable)) {
 			this.routerService.unRegisterRoute(moduleToEnable.path);
 		} else {
 			this.registerRoute(moduleToEnable);

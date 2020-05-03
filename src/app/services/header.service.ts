@@ -6,8 +6,8 @@ import {HeaderTemplateModel} from "../models/header-template.model";
 export class HeaderService {
 	public onHeaderUpdate: Subject<HeaderTemplateModel> = new Subject();
 
-    updateHeader(template: TemplateRef<any>, context?: any) {
-    	this.onHeaderUpdate.next({
+	updateHeader(template: TemplateRef<any>, context?: any) {
+		this.onHeaderUpdate.next({
 			template,
 			context
 		});

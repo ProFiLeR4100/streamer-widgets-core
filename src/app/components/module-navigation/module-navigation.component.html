@@ -3,7 +3,7 @@
 		 *ngFor="let route of existingRoutes$ | async"
 		 routerLinkActive="_active"
 		 [routerLink]="route.path"
-		 [routerLinkActiveOptions]="{ exact: false}"
+		 [routerLinkActiveOptions]="{exact: true}"
 		 closeSidebar>
 		<a class="module-navigation__item-link">{{route.path | titlecase}}</a>
 	</div>

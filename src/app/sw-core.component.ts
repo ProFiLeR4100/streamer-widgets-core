@@ -13,12 +13,15 @@ export class SwCoreComponent implements OnInit {
 	title = 'streamer-widgets-core';
 	installedModules$: any;
 
-	public template = `
-	`;
-
 	constructor(private routerService: RouterService,
 				private moduleService: ModuleService,
 				public router: Router) {
+	}
+
+	public _sidebarOpened: boolean = false;
+
+	public _toggleSidebar() {
+		this._sidebarOpened = !this._sidebarOpened;
 	}
 
 	ngOnInit(): void {

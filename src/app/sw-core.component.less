@@ -1,0 +1,51 @@
+@import "../styles/colors";
+
+.sw-core {
+	&__sidebar {
+		/deep/ aside {
+			background: @color-dark-l;
+			a {
+				color: @color-accent;
+			}
+		}
+
+
+		&-container {
+			width: 100vw;
+			height: 100vh;
+			background: @color-dark;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex: 1 1 100%;
+		height: 100%;
+
+		&-wrapper {
+			flex-direction: column;
+			display: flex;
+			flex: 1 1 100%;
+			height: 100%;
+		}
+	}
+
+	&__logo {
+		position: relative;
+
+		&-cog {
+			&-wrapper {
+				position: absolute;
+				top: 32%;
+				left: 47%;
+				width: 0;
+				height: 68%;
+			}
+
+			& .fa-cog {
+				font-size: 1.5em;
+				color: #F59607;
+			}
+		}
+	}
+}

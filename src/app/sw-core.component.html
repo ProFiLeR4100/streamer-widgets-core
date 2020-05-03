@@ -1,5 +1,17 @@
-<sw-module-navigation></sw-module-navigation>
-<hr />
-<button (click)="router.navigate(['moduleA/'])">a</button>
-<button (click)="router.navigate(['moduled/'])">a</button>
-<router-outlet></router-outlet>
+<ng-sidebar-container class="sw-core__sidebar-container">
+
+	<!-- A sidebar -->
+	<ng-sidebar class="sw-core__sidebar"
+				[(opened)]="_sidebarOpened"
+				[closeOnClickOutside]="true">
+		<sw-module-navigation></sw-module-navigation>
+	</ng-sidebar>
+
+	<!-- Page content -->
+	<div class="sw-core__content-wrapper" ng-sidebar-content>
+		<sw-header (onSidebarToggle)="_toggleSidebar()"></sw-header>
+		<div class="sw-core__content">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</ng-sidebar-container>

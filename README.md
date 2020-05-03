@@ -1,6 +1,6 @@
 # StreamerWidgetsCore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+This project is used to load child modules and create common UI. Core is generated  using [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3
 
 ## Development server
 

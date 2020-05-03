@@ -1,0 +1,13 @@
+{
+        "path": "moduleB",
+        "location": "./assets/moduleb.umd.js",
+        "moduleName": "ModulebModule",
+        "description": "clarity tab control with table and card - custom elements"
+    },
+    {
+        "path": "moduleC",
+        "location": "./assets/modulec.umd.js",
+        "moduleName": "ModulecModule",
+        "description": "clarity modal - custom elements",
+        "registered": true
+    },

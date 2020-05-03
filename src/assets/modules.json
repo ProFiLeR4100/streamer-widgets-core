@@ -1,0 +1,16 @@
+[
+    {
+        "path": "moduleA",
+        "location": "./assets/modulea.umd.js",
+        "moduleName": "ModuleaModule",
+        "description": "clarity form",
+        "registered": true
+    },
+    {
+        "path": "moduled",
+        "location": "./assets/moduled.umd.js",
+        "moduleName": "ModuledModule",
+        "description": "default subnavigation with 3 components and some clarity stuff",
+		"registered": true
+    }
+]

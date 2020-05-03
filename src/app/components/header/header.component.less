@@ -1,0 +1,30 @@
+@import "../../../styles/colors";
+
+.sw-header {
+	@base-height: 50px;
+	background: @color-dark-l;
+	width: 100vw;
+	height: @base-height;
+	color: @color-accent;
+	display: flex;
+	flex: 0 0 @base-height;
+
+	&__menu-button {
+		width: @base-height;
+		height: @base-height;
+		border: 0;
+		border-radius: 0;
+		color: @color-white;
+
+		&, &:hover, &:focus {
+			outline: none;
+			background: transparent;
+		}
+
+		&:hover {
+			background: @color-darkgray;
+			cursor: pointer;
+		}
+	}
+
+}

@@ -18,6 +18,7 @@ import {HomeComponent} from './components/home-component/home.component';
 import {SidebarModule} from "ng-sidebar";
 import {HeaderComponent} from './components/header/header.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {HeaderService} from "./services/header.service";
 
 export function createCompiler(compilerFactory: CompilerFactory) {
 	return compilerFactory.createCompiler();
@@ -38,7 +39,10 @@ export function createCompiler(compilerFactory: CompilerFactory) {
 		SidebarModule.forRoot(),
 		SwCoreRoutingModule
 	],
-	providers: [RouterService, ModuleService,
+	providers: [
+		RouterService,
+		ModuleService,
+		HeaderService,
 		{provide: COMPILER_OPTIONS, useValue: {}, multi: true},
 		{provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS]},
 		{provide: Compiler, useFactory: createCompiler, deps: [CompilerFactory]}

@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {faCog, faTv} from '@fortawesome/free-solid-svg-icons';
+import {HeaderService} from "../../services/header.service";
 
 @Component({
 	selector: 'sw-home-component',
@@ -6,11 +8,19 @@ import {Component, OnInit} from '@angular/core';
 	styleUrls: ['./home.component.less']
 })
 export class HomeComponent implements OnInit {
+	@ViewChild('headerTemplate', {static: true})
+	private headerTemplate: TemplateRef<any>;
 
-	constructor() {
+	constructor(private headerService: HeaderService) {
 	}
 
 	ngOnInit(): void {
+		this.headerService.updateHeader(this.headerTemplate, {
+			icons: {
+				cog: faCog,
+				tv: faTv
+			}
+		});
 	}
 
 }

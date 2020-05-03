@@ -3,10 +3,7 @@
 			(click)="onSidebarToggle.next()">
 		<fa-icon [icon]="_faBars"></fa-icon>
 	</button>
-
-	<fa-icon [icon]="_faCog" [classes]="['fa-spin']"></fa-icon>
-	<fa-icon [icon]="_faTv"></fa-icon>
-	hdr
+	<ng-container *ngTemplateOutlet="_template; context: _headerContext"></ng-container>
 </div>
 
 

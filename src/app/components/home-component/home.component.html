@@ -1,1 +1,12 @@
-<p>home-component works!</p>
+<p>home-component with custom header works!</p>
+<ng-template #headerTemplate let-icons="icons">
+
+	<div class="home-component__header-icon-wrapper">
+		<fa-icon class="home-component__header-icon _cog" [icon]="icons.cog" [classes]="['fa-spin']"></fa-icon>
+		<fa-icon class="home-component__header-icon _tv" [icon]="icons.tv"></fa-icon>
+	</div>
+	<div class="home-component__header-title">
+		Streamer Widgets
+	</div>
+
+</ng-template>

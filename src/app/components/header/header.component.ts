@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {faBars, faCog, faTv} from '@fortawesome/free-solid-svg-icons';
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
+import {faBars} from '@fortawesome/free-solid-svg-icons';
+import {HeaderService} from "../../services/header.service";
 
 @Component({
 	selector: 'sw-header',
@@ -11,14 +12,20 @@ export class HeaderComponent implements OnInit {
 	@Output()
 	public onSidebarToggle: EventEmitter<boolean> = new EventEmitter();
 
-	public _faCog = faCog;
-	public _faTv = faTv;
 	public _faBars = faBars;
+	public _template: TemplateRef<any>;
+	public _headerContext: any;
 
-	constructor() {
+	constructor(private headerService: HeaderService) {
 	}
 
 	ngOnInit(): void {
+		this.headerService
+			.onHeaderUpdate
+			.subscribe((headerValue) => {
+				this._template = headerValue.template;
+				this._headerContext = headerValue.context;
+			});
 	}
 
 }

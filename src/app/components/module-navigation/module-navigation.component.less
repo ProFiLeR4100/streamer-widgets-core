@@ -1,18 +1,19 @@
 @import "../../../styles/colors";
+@import "../../../styles/header-vars";
 
 .module-navigation {
-	@base-item-height: 50px;
+	@base-item-height: @header-height;
 
 	&__item {
 		height: @base-item-height;
-		padding-left: 3px;
+		padding: 0 10px 0 13px;
 		position: relative;
+		min-width: 200px;
+		justify-content: center;
+		display: flex;
+		flex-direction: column;
 
-		&, &:focus, &:hover {
-			outline: none;
-		}
-
-
+		// Active item highlight
 		&:before {
 			content: "";
 			position: absolute;
@@ -25,6 +26,19 @@
 
 		&._active:before {
 			background: @color-accent;
+		}
+
+		&, &:focus, &:hover {
+			outline: none;
+		}
+
+		a {
+			color: @color-gray;
+		}
+
+		&._active a,
+		&:hover a {
+			color: @color-white;
 		}
 
 		&s-wrapper {

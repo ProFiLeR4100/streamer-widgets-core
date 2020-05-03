@@ -1,0 +1,41 @@
+@import "../../../styles/colors";
+@import "../../../styles/header-vars";
+
+.home-component {
+	&__header {
+		&-icon {
+			&._cog {
+				color: @color-accent;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -73%);
+			}
+
+			&._tv {
+				color: @color-white;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				font-size: 35px;
+				transform: translate(-50%, -50%);
+			}
+
+			&-wrapper {
+				position: relative;
+				height: @header-height;
+				width: @header-height;
+				top: 2px;
+				justify-content: center;
+			}
+		}
+
+		&-title {
+			padding-left: 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			color: @color-accent;
+		}
+	}
+}

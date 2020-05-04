@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {SwCoreComponent} from "./sw-core.component";
 import {HomeComponent} from "./components/home-component/home.component";
 import {ModulesListComponent} from "./components/modules-list/modules-list.component";
+import {LazyModuleGuardService} from "./services/lazy-module-guard.service";
 
 
 const routes: Routes = [
@@ -17,6 +17,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'module',
+		canActivateChild: [LazyModuleGuardService],
 		component: ModulesListComponent
 	}
 ];

@@ -7,8 +7,10 @@ import {BehaviorSubject} from 'rxjs';
 @Injectable()
 export class RouterService {
 	existingRoutes: BehaviorSubject<Route[]>;
+	private readonly originalRoutes: Route[];
 
 	constructor(private router: Router, private compiler: Compiler, private http: Http) {
+		this.originalRoutes = this.routes;
 		this.existingRoutes = new BehaviorSubject<Route[]>(this.routes);
 	}
 
@@ -18,6 +20,7 @@ export class RouterService {
 	}
 
 	createAndRegisterRoute(moduleToRegister: ModuleData, exports: any) {
+		// TODO: add this route to parent for canAccessChild worked
 		let route: Route = {
 			path: 'module/' + moduleToRegister.path,
 			loadChildren: () => exports[`${moduleToRegister.moduleName}`]
@@ -27,7 +30,6 @@ export class RouterService {
 	}
 
 	routeIsRegistered(path: string) {
-		debugger;
 		return this.router.config.filter(r => r.path === path).length > 0;
 	}
 
@@ -47,6 +49,4 @@ export class RouterService {
 		this.router.resetConfig(config);
 		this.existingRoutes.next(this.routes);
 	}
-
-
 }

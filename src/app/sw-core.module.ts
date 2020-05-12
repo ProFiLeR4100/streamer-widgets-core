@@ -20,6 +20,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {HeaderService} from "./services/header.service";
 import {ModulesListComponent} from './components/modules-list/modules-list.component';
+import {ModulesNotFoundComponent} from "./components/module-not-found/modules-not-found.component";
 
 export function createCompiler(compilerFactory: CompilerFactory) {
 	return compilerFactory.createCompiler();
@@ -31,7 +32,8 @@ export function createCompiler(compilerFactory: CompilerFactory) {
 		ModuleNavigationComponent,
 		HomeComponent,
 		HeaderComponent,
-		ModulesListComponent
+		ModulesListComponent,
+		ModulesNotFoundComponent,
 	],
 	imports: [
 		HttpModule,
